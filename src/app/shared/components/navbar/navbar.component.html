@@ -1,0 +1,36 @@
+<nav class="navbar p-4 flex justify-between items-center">
+  <div class="flex space-x-4">
+    <a routerLink="/catalog" class="hover:underline">Catalog</a>
+    <a routerLink="/cart" class="hover:underline">Cart</a>
+    <a routerLink="/login" class="hover:underline">Login</a>
+  </div>
+  <div class="relative">
+    <button class="relative" (click)="toggleCart()">
+      <i class="pi pi-shopping-cart"></i>
+      <span class="absolute top-0 right-0 bg-red-600 text-white rounded-full text-xs px-2 py-1">{{ cartItemCount }}</span>
+    </button>
+  </div>
+</nav>
+
+<div *ngIf="displayCart" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+  <div class="bg-gray-800 p-4 rounded shadow-lg w-1/2 text-white">
+    <h2 class="text-xl mb-4">Cart Items</h2>
+    <ul>
+      <li *ngFor="let item of cartItems" class="flex justify-between border-b border-gray-700 py-2">
+        <div>
+          <span>{{ item.name }}</span>
+          <div class="flex items-center mt-2 space-x-2">
+            <button class="button" (click)="decreaseQuantity(item)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button class="button" (click)="increaseQuantity(item)">+</button>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span>{{ item.price | currency }}</span>
+          <button class="button bg-red-500 hover:bg-red-600" (click)="removeFromCart(item)">Remove</button>
+        </div>
+      </li>
+    </ul>
+    <button class="mt-4 button" (click)="toggleCart()">Close</button>
+  </div>
+</div>

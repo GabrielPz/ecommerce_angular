@@ -1,0 +1,11 @@
+<div class="container mx-auto mt-8">
+  <h1 class="text-3xl mb-4">Your Cart</h1>
+  <div *ngIf="cart.length > 0; else emptyCart">
+    <div *ngFor="let product of cart">
+      <app-cart-item [product]="product"></app-cart-item>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+</div>
