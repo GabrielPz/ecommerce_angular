@@ -1,0 +1,45 @@
+<form [formGroup]="productForm" (ngSubmit)="formSubmit()">
+    <div class="form-container">
+        <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('title')}">
+            <label for="title">Title</label>
+            <input id="title" formControlName="title">
+            <div *ngIf="isFieldInvalid('title')" class="error-message">
+                Title required between 3 and 50 characters.
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('description')}">
+            <label for="description">Description</label>
+            <input id="description" formControlName="description">
+            <div *ngIf="isFieldInvalid('description')" class="error-message">
+                Description required between 10 and 500 characters.
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('price')}">
+            <label for="price">Price</label>
+            <input id="price" formControlName="price" type="number">
+            <div *ngIf="isFieldInvalid('price')" class="error-message">
+                Price required and must be a positive number.
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('quantity')}">
+            <label for="quantity">Quantity</label>
+            <input id="quantity" formControlName="quantity" type="number">
+            <div *ngIf="isFieldInvalid('quantity')" class="error-message">
+                Quantity required and must be higher than 0.
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('imageUrl')}">
+            <label for="imageUrl">Image URL</label>
+            <input id="imageUrl" formControlName="imageUrl">
+            <div *ngIf="isFieldInvalid('imageUrl')" class="error-message">
+                Image URL required.
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="productForm.invalid">Add Product</button>
+    </div>
+</form>
