@@ -10,7 +10,7 @@ import { CartDrawerComponent } from './cart-drawer/cart-drawer.component';
 })
 export class NavbarComponent {
   cartItems: Product[] = [];
-  displayCart = true;
+  displayCart = false;
 
   constructor(private cartService: CartService) {
     this.cartService.cart$.subscribe((items) => (this.cartItems = items));
