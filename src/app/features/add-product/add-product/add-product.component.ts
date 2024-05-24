@@ -40,11 +40,9 @@ export class AddProductComponent {
 
     if(this.productId) {
       this.catalogService.updateProduct(productData);
-      this.router.navigate(['/']);
       return;
     }
 
-    this.router.navigate(['/'])
     this.catalogService.addProduct(productData);
     this.productForm.reset();
   }
