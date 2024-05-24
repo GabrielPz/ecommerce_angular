@@ -1,5 +1,5 @@
-<header class="bg-blue-50">
-  <nav class="flex justify-between p-5 items-center">
+<header>
+  <nav class="flex justify-between p-5 items-center z-0">
     <div>
       <a routerLink="/" class="lg:ml-5 font-bold tracking-wider text-3xl"
         >ROUPI</a
@@ -28,8 +28,8 @@
       </span>
     </div>
   </nav>
-  <app-cart-drawer
-    [isVisible]="displayCart"
-    (onClose)="toggleCart()"
-  ></app-cart-drawer>
 </header>
+<app-cart-drawer
+  [isVisible]="displayCart"
+  (onClose)="toggleCart()"
+></app-cart-drawer>
