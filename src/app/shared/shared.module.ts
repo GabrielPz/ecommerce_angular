@@ -4,14 +4,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 import { RouterModule } from '@angular/router';
-import { CartDrawerComponent } from './components/navbar/cart-drawer/cart-drawer.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     HighlightDirective,
-    FilterPipe,
-    CartDrawerComponent
+    FilterPipe
   ],
   imports: [
     CommonModule,

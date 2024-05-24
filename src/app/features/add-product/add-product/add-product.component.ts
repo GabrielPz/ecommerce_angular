@@ -57,11 +57,14 @@ export class AddProductComponent {
 
   formSubmit() {
     if (this.productForm.invalid) {
+      alert("Inválido")
       return;
     }
 
     let productData: Product = this.productForm.value;
+    productData.name = this.productForm.value.title;
 
+    alert(JSON.stringify(productData.name))
     if (this.productId) {
       this.catalogService.updateProduct(productData);
     } else {

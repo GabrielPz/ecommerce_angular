@@ -9,7 +9,7 @@ import { Product } from '../models/product';
 export class CatalogService {
   private products = new BehaviorSubject<Product[]>([]);
   products$ = this.products.asObservable();
-  private apiUrl = 'http://localhost:3000/products';
+  private apiUrl = 'https://backendangularproject.onrender.com/products';
 
   constructor(private http: HttpClient) {
     this.fetchProducts();
@@ -21,7 +21,13 @@ export class CatalogService {
   }
 
   addProduct(product: Product) {
-    return this.http.post(this.apiUrl, product);
+    this.http.post<Product>(this.apiUrl, product).subscribe(
+      newProduct => {
+        const currentProducts = this.products.getValue();
+        this.products.next([...currentProducts, newProduct]);
+      },
+      error => console.error('Error adding product:', error)
+    );
   }
 
   updateProduct(product: Product) {

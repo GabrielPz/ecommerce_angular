@@ -1,19 +1,6 @@
-<article
-    class="flex flex-col p-4 rounded-md shadow-lg border border-gray-200 border-opacity-55 w-full md:max-w-[400px] md:max-h-[400px]"
-  >
-    <img
-      [src]="product.imageUrl"
-      alt="{{ product.name }}"
-      class="h-[250px] object-cover w-full"
-    />
-    <div class="flex flex-col mt-3">
-      <h3 class="text-xl font-semibold">{{ product.name }}</h3>
-      <p class="">{{ product.price | currency }}</p>
-        <button
-          class="rounded-full border border-zinc-300 self-end w-12 h-12 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
-          (click)="addToCart()"
-        >
-          <i class="fa-solid fa-plus"></i>
-        </button>
-    </div>
-  </article>
+<div class="bg-gray-800 p-4 rounded shadow-lg">
+  <img [src]="product.imageUrl" alt="{{ product.name }}" class="w-full h-48 object-cover mb-4">
+  <h3 class="text-xl mb-2">{{ product.name }}</h3>
+  <p class="mb-4">{{ product.price | currency }}</p>
+  <button class="button w-full" (click)="addToCart()">Add to Cart</button>
+</div>

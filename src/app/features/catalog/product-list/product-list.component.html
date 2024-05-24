@@ -1,8 +1,6 @@
-<div class="flex flex-col gap-5 p-10">
-<h1 class="font-semibold opacity-70 self-start text-2xl">Produtos</h1>
-<section class="products lg:flex gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2">
-  @for (product of products; track product.id) {
-  <app-product-item [product]="product"></app-product-item>
-  }
-</section>
+<div class="container mx-auto mt-8">
+  <h1 class="text-3xl mb-4">Product Catalog</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+  </div>
 </div>

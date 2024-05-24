@@ -1,35 +1,14 @@
-<section class="flex justify-center items-center w-full h-[90%] p-5">
-  <div class="p-6 border border-zinc-300 border-opacity-55 rounded-lg shadow w-full max-w-[500px]">
-    <form (submit)="login()" class="flex flex-col gap-4">
-      <h1 class="font-bold text-center text-2xl opacity-60">Bem vindo!</h1>
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          [(ngModel)]="username"
-          name="username"
-          class=""
-        />
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          [(ngModel)]="password"
-          name="password"
-        />
-      </div>
-      <button type="submit" class="bg-blue-600 rounded-lg p-3 text-white font-semibold hover:bg-blue-500 transition-all">Login</button>
-      <button type="submit" class="border border-zinc-300 border-opacity-55 rounded-lg p-3 font-semibold hover:bg-zinc-300 transition-all">Registrar-se</button>
-    </form>
-  </div>
-</section>
-
-<!-- <div>
+<div>
   <h2>Login</h2>
   <form (submit)="login()">
-    
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password">
+    </div>
+    <button type="submit">Login</button>
   </form>
-</div> -->
+</div>

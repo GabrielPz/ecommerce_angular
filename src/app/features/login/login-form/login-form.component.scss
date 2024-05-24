@@ -1,15 +1,41 @@
-.input-group {
-  @apply flex flex-col gap-2;
+div {
+  max-width: 300px;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
 }
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 1rem;
+}
+
 label {
-  @apply font-semibold;
+  margin-bottom: 0.5rem;
 }
+
 input {
   padding: 0.5rem;
   border: 1px solid #ccc;
   color: #000;
-  @apply w-full border border-zinc-500 border-opacity-55 p-3 rounded-lg transition-all outline-none;
-  @apply focus:border-blue-600;
-  @apply hover:border-blue-600;
 }
 
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
