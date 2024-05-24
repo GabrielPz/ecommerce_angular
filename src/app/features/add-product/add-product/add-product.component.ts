@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Product } from '../../../core/models/product';
+import { CatalogService } from '../../../core/services/catalog.service';
 
 @Component({
   selector: 'app-add-product',
@@ -11,10 +13,17 @@ import { Product } from '../../../core/models/product';
 })
 export class AddProductComponent {
 
+  private productId: string;
   productToUpdate?: Product;
   productForm: FormGroup;
 
-  constructor () {
+  constructor (
+    private catalogService: CatalogService, 
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    
+    this.productId = this.route.snapshot.params["id"];
 
     this.productForm = new FormGroup({
       title: new FormControl(this.productToUpdate?.name || "Título Padrão"),
@@ -26,13 +35,18 @@ export class AddProductComponent {
   });
   }
 
-  onSubmit() {
-    if (this.productForm.valid) {
-      const newProduct = this.productForm.value;
-      console.log('Product added:', newProduct);
-    } else {
-      console.log('Form is invalid');
+  formSubmit() {
+    let productData: Product = this.productForm.value;
+
+    if(this.productId) {
+      this.catalogService.updateProduct(productData);
+      this.router.navigate(['/']);
+      return;
     }
+
+    this.router.navigate(['/'])
+    this.catalogService.addProduct(productData);
+    this.productForm.reset();
   }
 
 }
