@@ -33,4 +33,8 @@ export class CartDrawerComponent {
   removeFromCart(product: Product) {
     this.cartService.removeFromCart(product.id);
   }
+
+  clearCart() {
+    this.cartService.clearCart();
+  }
 }
